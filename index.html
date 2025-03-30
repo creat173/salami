@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ঈদ সেলামি</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 2s ease;
+        }
+        .button {
+            background-color: #FF6347; /* Tomato color */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #FF4500; /* OrangeRed color */
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .boldColor {
+            font-weight: bold;
+            color: #FF6347;
+        }
+        .inputField {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: border-color 0.3s;
+        }
+        .inputField:focus {
+            border-color: #FF6347;
+        }
+        .largeText {
+            font-size: 50px;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 30px;
+            animation: enlarge 2s;
+            text-align: center;
+        }
+        @keyframes enlarge {
+            0% { font-size: 40px; opacity: 0; }
+            100% { font-size: 60px; opacity: 1; }
+        }
+        .star-moon {
+            color: #FFD700;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .bikashText {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #FF6347; /* Tomato color */
+            padding: 15px 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .bikashText:hover {
+            background-color: #FF4500; /* OrangeRed color */
+            transform: scale(1.1);
+        }
+        .finalSalamBox {
+            width: 60%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeInBox 2s ease;
+        }
+        @keyframes fadeInBox {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .finalSalam {
+            font-size: 45px;
+            color: #FFEB3B; /* Yellow color */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1st Phase -->
+    <div id="firstPhase">
+        <h1 class="star-moon">🌟🌙</h1>
+        <h1>বন্ধু-বান্ধব সবাইকে ঈদ মোবারক 😊</h1>
+        <p>ঈদের আনন্দ সবাইকে ছড়িয়ে পড়ুক।</p>
+        <button class="button" onclick="goToSecondPhase()">Click Here</button>
+    </div>
+
+    <!-- 2nd Phase -->
+    <div id="secondPhase" class="hidden">
+        <h1>ঈদ এর সেলামি পেতে চাইলে বিকাশ নম্বর দিন☺️</h1>
+        <button class="button bikashText" onclick="goToThirdPhase()">Bikash</button>
+    </div>
+
+    <!-- 3rd Phase -->
+    <div id="thirdPhase" class="hidden">
+        <h1>বিকাশ নম্বর দিন:</h1>
+        <input type="text" id="bikashNumber" class="inputField" placeholder="বিকাশ নম্বর লিখুন">
+        <br><br>
+        <button class="button" onclick="submitNumber()">Submit</button>
+    </div>
+
+    <!-- Final Phase -->
+    <div id="finalPhase" class="hidden">
+        <div class="finalSalamBox">
+            <h1 class="finalSalam">আসসালামু আলাইকুম 😁</h1>
+        </div>
+    </div>
+
+    <script>
+        function goToSecondPhase() {
+            document.getElementById('firstPhase').style.display = 'none';
+            document.getElementById('secondPhase').style.display = 'block';
+        }
+
+        function goToThirdPhase() {
+            document.getElementById('secondPhase').style.display = 'none';
+            document.getElementById('thirdPhase').style.display = 'block';
+        }
+
+        function submitNumber() {
+            var bikashNumber = document.getElementById('bikashNumber').value;
+            if(bikashNumber != '') {
+                document.getElementById('thirdPhase').style.display = 'none';
+                document.getElementById('finalPhase').style.display = 'block';
+            } else {
+                alert("বিকাশ নম্বর পূর্ণ করুন।");
+            }
+        }
+    </script>
+
+</body>
+</html>
